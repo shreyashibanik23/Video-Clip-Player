@@ -14,7 +14,7 @@ export default function VideoUpload({ setVideoUrl }) {
     formData.append("video", file);
 
     try {
-      const res = await axios.post("http://127.0.0.1:5000/upload", formData);
+      const res = await axios.post("https://video-clip-player.onrender.com", formData);
       setVideoUrl(res.data.video_url);
     } catch (error) {
       console.error(error);
@@ -22,19 +22,20 @@ export default function VideoUpload({ setVideoUrl }) {
     }
   };
 
-  return (
-    <div>
-      <h2>Upload Recorded Video</h2>
+return (
+  <div>
+    <h2>Upload Recorded Video</h2>
 
-      <input
-        type="file"
-        accept="video/*"
-        onChange={(e) => setFile(e.target.files[0])}
-      />
+    <input
+      type="file"
+      accept="video/*"
+      onChange={(e) => setFile(e.target.files[0])}
+    />
 
-      <br /><br />
+    <br /><br />
 
-      <button onClick={handleUpload}>Upload</button>
-    </div>
-  );
+    <button onClick={handleUpload}>Upload</button>
+  </div>
+);
+
 }
