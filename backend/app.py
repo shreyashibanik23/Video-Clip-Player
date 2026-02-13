@@ -10,6 +10,9 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
+@app.route("/")
+def home():
+    return "Flask backend running!"
 
 # 🔹 Upload Video API
 @app.route("/upload", methods=["POST"])
@@ -22,7 +25,8 @@ def upload_video():
     filepath = os.path.join(app.config["UPLOAD_FOLDER"], file.filename)
     file.save(filepath)
 
-    video_url = f"https://video-clip-player.onrender.com/video/{file.filename}"
+    video_url = f"{request.host_url}video/{file.filename}"
+
 
 
     return jsonify({"video_url": video_url})
