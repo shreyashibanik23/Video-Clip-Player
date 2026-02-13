@@ -22,7 +22,7 @@ def upload_video():
     filepath = os.path.join(app.config["UPLOAD_FOLDER"], file.filename)
     file.save(filepath)
 
-    video_url = f"https://video-clip-player-1.onrender.com/video/{file.filename}"
+    video_url = f"https://video-clip-player.onrender.com/video/{file.filename}"
 
 
     return jsonify({"video_url": video_url})

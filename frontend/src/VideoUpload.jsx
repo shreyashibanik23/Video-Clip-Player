@@ -14,7 +14,7 @@ export default function VideoUpload({ setVideoUrl }) {
     formData.append("video", file);
 
     try {
-      const res = await axios.post("https://video-clip-player-1.onrender.com/upload", formData);
+      const res = await axios.post("https://video-clip-player.onrender.com/upload", formData);
       setVideoUrl(res.data.video_url);
     } catch (error) {
       console.error(error);
